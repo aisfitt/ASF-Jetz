@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Tombol My Project
+        // Tombol My Projec
         binding.btnProjek.setOnClickListener {
             Log.d("MainActivity", "Tombol My Project berhasil ditekan")
             val intent = Intent(this, MainActivityresult::class.java)
