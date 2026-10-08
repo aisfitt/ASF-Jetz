@@ -1,255 +1,289 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/biru_tua_jetz"
+    android:background="@color/white"
     tools:context=".MainActivityresult">
 
-    <TextView
-        android:id="@+id/textJudul"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="JETZ CHOCOLATE"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
+    <!-- Toolbar menggunakan androidx.appcompat.widget.Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary"
+        app:title="Informasi Gizi"
+        app:titleTextColor="@android:color/white"
+        app:subtitleTextColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageJetz"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/jetz"
-        android:scaleType="fitCenter"
-        android:contentDescription="Gambar Jetz"
-        app:layout_constraintTop_toBottomOf="@id/textJudul"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textKomposisiGizi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Komposisi Gizi"
-        android:textColor="@color/coklat_jetz"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:background="@color/white"
-        android:paddingStart="18dp"
-        android:paddingEnd="18dp"
-        android:paddingTop="7dp"
-        android:paddingBottom="7dp"
-        app:layout_constraintTop_toBottomOf="@id/imageJetz"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <View
+    <!-- ScrollView agar konten tidak terpotong di layar kecil -->
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/kuning_jetz"
-        app:layout_constraintTop_toBottomOf="@id/textKomposisiGizi"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textEnergi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Energi"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textKomposisiGizi" />
-
-    <TextView
-        android:id="@+id/nilaiEnergi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="90 kkal"
-        android:textColor="@color/kuning_jetz"
-        android:textSize="15sp"
-        android:textStyle="bold"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textEnergi" />
-
-    <TextView
-        android:id="@+id/textLemak"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="9dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Lemak"
-        android:textColor="@color/white"
-        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textEnergi" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-    <TextView
-        android:id="@+id/nilaiLemak"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="4 g"
-        android:textColor="@color/kuning_jetz"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textLemak" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="32dp">
 
-    <TextView
-        android:id="@+id/textProtein"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="9dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Protein"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textLemak" />
+            <!-- Judul Produk -->
+            <TextView
+                android:id="@+id/textJudul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="JETZ CHOCOLATE"
+                android:textColor="@color/primary"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/nilaiProtein"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="1 g"
-        android:textColor="@color/kuning_jetz"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textProtein" />
+            <!-- Gambar Produk -->
+            <ImageView
+                android:id="@+id/imageJetz"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="Gambar Jetz"
+                android:scaleType="fitCenter"
+                android:src="@drawable/jetz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textJudul" />
 
-    <TextView
-        android:id="@+id/textKarbohidrat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="9dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Karbohidrat"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textProtein" />
+            <!-- Badge Header Komposisi Gizi -->
+            <TextView
+                android:id="@+id/textKomposisiGizi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/warm_ivory"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingStart="20dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="8dp"
+                android:text="Komposisi Gizi"
+                android:textColor="@color/secondary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageJetz" />
 
-    <TextView
-        android:id="@+id/nilaiKarbohidrat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="12 g"
-        android:textColor="@color/kuning_jetz"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textKarbohidrat" />
+            <!-- Garis Pembatas (Divider) -->
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="36dp"
+                android:background="@color/disabled"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textKomposisiGizi" />
 
-    <TextView
-        android:id="@+id/textGula"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="9dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Gula"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textKarbohidrat" />
+            <!-- Item: Energi -->
+            <TextView
+                android:id="@+id/textEnergi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Energi"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
 
-    <TextView
-        android:id="@+id/nilaiGula"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="5 g"
-        android:textColor="@color/kuning_jetz"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textGula" />
+            <TextView
+                android:id="@+id/nilaiEnergi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="44dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="90 kkal"
+                android:textColor="@color/secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textEnergi" />
 
-    <TextView
-        android:id="@+id/textGaram"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="9dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Garam / Natrium"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textGula" />
+            <!-- Item: Lemak -->
+            <TextView
+                android:id="@+id/textLemak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Lemak"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textEnergi" />
 
-    <TextView
-        android:id="@+id/nilaiGaram"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="75 mg"
-        android:textColor="@color/kuning_jetz"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textGaram" />
+            <TextView
+                android:id="@+id/nilaiLemak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="44dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="4 g"
+                android:textColor="@color/secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textLemak" />
 
-    <TextView
-        android:id="@+id/textKomposisi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Komposisi"
-        android:textColor="@color/kuning_jetz"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/textGaram"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <!-- Item: Protein -->
+            <TextView
+                android:id="@+id/textProtein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Protein"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textLemak" />
 
-    <TextView
-        android:id="@+id/isiKomposisi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Gula, Tepung tapioka, Tepung terigu, Minyak olein kelapa sawit, Lemak susu, Kakao bubuk, Sirup glukosa, Susu bubuk full cream, Tepung ubi jalar, Natrium hidrogen karbonat, Dinatrium difosfat, Garam, Lesitin kedelai, Perisa sintetik, Bumbu rasa cokelat"
-        android:textColor="@color/white"
-        android:textSize="13sp"
-        android:lineSpacingExtra="3dp"
-        app:layout_constraintTop_toBottomOf="@id/textKomposisi"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/nilaiProtein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="44dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="1 g"
+                android:textColor="@color/secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textProtein" />
+
+            <!-- Item: Karbohidrat -->
+            <TextView
+                android:id="@+id/textKarbohidrat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Karbohidrat"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textProtein" />
+
+            <TextView
+                android:id="@+id/nilaiKarbohidrat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="44dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="12 g"
+                android:textColor="@color/secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textKarbohidrat" />
+
+            <!-- Item: Gula -->
+            <TextView
+                android:id="@+id/textGula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Gula"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textKarbohidrat" />
+
+            <TextView
+                android:id="@+id/nilaiGula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="44dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="5 g"
+                android:textColor="@color/secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textGula" />
+
+            <!-- Item: Garam / Natrium -->
+            <TextView
+                android:id="@+id/textGaram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Garam / Natrium"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textGula" />
+
+            <TextView
+                android:id="@+id/nilaiGaram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="44dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="75 mg"
+                android:textColor="@color/secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textGaram" />
+
+            <!-- Header Komposisi Bahan -->
+            <TextView
+                android:id="@+id/textKomposisi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Komposisi Bahan"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textGaram" />
+
+            <!-- Deskripsi Komposisi -->
+            <TextView
+                android:id="@+id/isiKomposisi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp"
+                android:text="Gula, Tepung tapioka, Tepung terigu, Minyak olein kelapa sawit, Lemak susu, Kakao bubuk, Sirup glukosa, Susu bubuk full cream, Tepung ubi jalar, Natrium hidrogen karbonat, Dinatrium difosfat, Garam, Lesitin kedelai, Perisa sintetik, Bumbu rasa cokelat"
+                android:textColor="@color/secondary"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textKomposisi" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
