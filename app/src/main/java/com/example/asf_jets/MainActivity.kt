@@ -7,8 +7,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.asf_jets.auth.LoginActivity
 import com.example.asf_jets.databinding.ActivityMainBinding
+import com.example.asf_jets.pofile.ProfileActivity
 import kotlin.jvm.java
+import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,6 +42,37 @@ class MainActivity : AppCompatActivity() {
             Log.d("MainActivity", "Tombol Kunjungi Web berhasil ditekan")
             val intent = Intent(this, WebActivity::class.java)
             startActivity(intent)
+        }
+
+        // 3. Tombol Profil Developer
+        binding.btnProfile.setOnClickListener {
+            Log.d("MainActivity", "Tombol Profil Developer berhasil ditekan")
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 4. Tombol Logout dengan AlertDialog
+        val sharedPref = getSharedPreferences("UserPref", MODE_PRIVATE)
+
+        binding.btnLogout.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Konfirmasi")
+                .setMessage("Apakah kamu yakin ingin keluar?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    // Hapus sesi di SharedPreferences
+                    val editor = sharedPref.edit()
+                    editor.clear()
+                    editor.apply()
+
+                    dialog.dismiss()
+
+                    // Pindah ke LoginActivity
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                .setNegativeButton("Tidak", null)
+                .show()
         }
     }
 }
