@@ -12,6 +12,8 @@ import com.example.asf_jets.databinding.ActivityMainBinding
 import com.example.asf_jets.pofile.ProfileActivity
 import kotlin.jvm.java
 import androidx.appcompat.app.AlertDialog
+import com.example.asf_jets.home.WebActivity
+import com.example.asf_jets.pofile.MainActivityresult
 
 class MainActivity : AppCompatActivity() {
 
