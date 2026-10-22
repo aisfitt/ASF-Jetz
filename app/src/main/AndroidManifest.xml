@@ -24,11 +24,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivityresult"
+            android:name=".pofile.MainActivityresult"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".WebActivity"
+            android:name=".home.WebActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -41,6 +41,10 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".pofile.ProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".BaseActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

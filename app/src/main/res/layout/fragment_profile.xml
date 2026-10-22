@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".profil.ProfilFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary"
+        app:titleTextColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Ini Halaman Profil"
+        android:textColor="@color/primary"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <Button
+        android:id="@+id/btnProjek"
+        android:layout_width="220dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/secondary"
+        android:fontFamily="@font/poppins_medium"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="My Project"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:cornerRadius="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <Button
+        android:id="@+id/btnWeb"
+        android:layout_width="220dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/warm_ivory"
+        android:fontFamily="@font/poppins_medium"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Kunjungi Web"
+        android:textAllCaps="false"
+        android:textColor="@color/secondary"
+        android:textSize="15sp"
+        app:cornerRadius="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnProjek" />
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="220dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/primary"
+        android:fontFamily="@font/poppins_medium"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Profil Developer"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:cornerRadius="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnWeb" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="220dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/error"
+        android:fontFamily="@font/poppins_medium"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Log Out"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:cornerRadius="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnProfile" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

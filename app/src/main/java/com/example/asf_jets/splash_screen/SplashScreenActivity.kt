@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.example.asf_jets.BaseActivity
 import com.example.asf_jets.MainActivity
 import com.example.asf_jets.auth.LoginActivity
 import com.example.asf_jets.databinding.ActivitySplashScreenBinding
@@ -20,7 +21,7 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Tampilkan Splash Screen (Layout 1-A) selama 2 detik
+        // Tampilkan Splash Screen selama 2 detik
         Handler(Looper.getMainLooper()).postDelayed({
             checkSession()
         }, 2000)
@@ -32,7 +33,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         if (isLoggedIn) {
             // Pengguna sudah login -> langsung ke Main
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, BaseActivity::class.java)
             startActivity(intent)
         } else {
             // Pengguna belum login -> arahkan ke LoginActivity
