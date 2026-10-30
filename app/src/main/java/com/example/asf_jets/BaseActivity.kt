@@ -59,7 +59,10 @@ class BaseActivity : AppCompatActivity() {
             }
         }
     }
-
+    // Dipanggil dari fragment untuk pindah tab (otomatis memicu setOnItemSelectedListener)
+    fun pindahTab(menuId: Int) {
+        binding.bottomNavView.selectedItemId = menuId
+    }
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(binding.fragmentContainer.id, fragment)
