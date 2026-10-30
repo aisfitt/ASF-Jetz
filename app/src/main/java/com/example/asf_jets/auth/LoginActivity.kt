@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.asf_jets.BaseActivity
 import com.example.asf_jets.MainActivity
 import com.example.asf_jets.databinding.ActivityLoginBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class LoginActivity : AppCompatActivity() {
 
@@ -33,6 +34,23 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // Kondisi 1: username sama dengan password
+            val isSamaPersis = username == password
+
+            // Kondisi 2: username dan password cocok dengan data registrasi
+            val registerPref = getSharedPreferences("RegisterPref", Context.MODE_PRIVATE)
+            val savedUsername = registerPref.getString("username", null)
+            val savedPassword = registerPref.getString("password", null)
+            val isCocokRegistrasi = savedUsername != null &&
+                    username == savedUsername &&
+                    password == savedPassword
+
+            // Gagal jika kedua kondisi tidak terpenuhi
+            if (!isSamaPersis && !isCocokRegistrasi) {
+                tampilkanErrorLogin()
+                return@setOnClickListener
+            }
+
             // === SIMPAN SESI LOGIN ===
             val sharedPref = getSharedPreferences("UserPref", Context.MODE_PRIVATE)
             val editor = sharedPref.edit()
@@ -49,6 +67,19 @@ class LoginActivity : AppCompatActivity() {
             finish() // Tutup LoginActivity agar pengguna tidak bisa kembali ke login pakai tombol Back
         }
 
+        binding.btnRegisterGmail.setOnClickListener {
+            val intent = Intent(this, RegisterEmailActivity::class.java)
+            startActivity(intent)
+        }
+    }
 
+    private fun tampilkanErrorLogin() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Login Gagal")
+            .setMessage("Username atau password salah. Pastikan sesuai dengan data registrasi.")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 }
