@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".home.HomeFragment">
+    tools:context=".ulasan.UlasanFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -18,17 +18,88 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardForm"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Ini Halaman Ulasan"
-        android:textColor="@color/primary"
-        android:textSize="28sp"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/warm_ivory"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Beri rating Anda"
+                android:textColor="@color/primary"
+                android:textSize="13sp" />
+
+            <!-- RatingBar (sesuai video): id, wrap_content, centerHorizontal,
+                 progressBackgroundTint, numStars, progress, progressTint -->
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:numStars="5"
+                android:progress="0"
+                android:progressBackgroundTint="#D9D9D9"
+                android:progressTint="@color/muted_gold"
+                android:secondaryProgressTint="@color/muted_gold"
+                android:stepSize="0.5" />
+
+            <EditText
+                android:id="@+id/etUlasan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_input_field"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="top"
+                android:hint="Tulis ulasan Anda"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:padding="14dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/primary_shade_3"
+                android:textSize="13sp" />
+
+            <!-- Tombol (di video: "Show Rating") -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnKirimUlasan"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_button_primary"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Kirim Ulasan"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUlasan"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/cardForm" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
