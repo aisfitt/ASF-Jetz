@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.asf_jets.BaseActivity
 import com.example.asf_jets.R
 import com.example.asf_jets.databinding.FragmentHomeBinding
+import com.example.asf_jets.info.InfoPerusahaanActivity
 
 class HomeFragment : Fragment() {
 
@@ -90,7 +91,7 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), WebActivity::class.java))
         }
         binding.cvInfoProfil.setOnClickListener {
-            tampilkanToast("Profil Perusahaan")
+            startActivity(Intent(requireContext(), InfoPerusahaanActivity::class.java))
         }
         binding.cvInfoFaq.setOnClickListener {
             tampilkanToast("FAQ")
