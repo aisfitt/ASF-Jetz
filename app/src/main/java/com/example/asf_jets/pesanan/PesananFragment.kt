@@ -10,6 +10,11 @@ import androidx.fragment.app.Fragment
 import com.example.asf_jets.BaseActivity
 import com.example.asf_jets.R
 import com.example.asf_jets.databinding.FragmentPesananBinding
+import android.content.Intent
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import com.example.asf_jets.pesanan.tutorial.TutorialPesananActivity
 
 class PesananFragment : Fragment() {
 
@@ -30,6 +35,7 @@ class PesananFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
             title = "Pesanan"
         }
+        setHasOptionsMenu(true)
 
         // Data alur pemesanan (sesuai user flow di grand design)
         val daftarAlur = listOf(
@@ -57,6 +63,21 @@ class PesananFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.pesanan_toolbar_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_tutorial -> {
+                val intent = Intent(requireContext(), TutorialPesananActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
