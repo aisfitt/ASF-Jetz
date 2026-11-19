@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="128dp"
+    android:layout_margin="6dp"
+    android:background="@drawable/bg_card_item"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imgLayanan"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:contentDescription="Ikon layanan"
+        android:tint="@color/primary" />
+
+    <TextView
+        android:id="@+id/tvJudul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_bold"
+        android:maxLines="1"
+        android:text="Judul"
+        android:textColor="@color/primary"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvDeskripsi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_regular"
+        android:maxLines="2"
+        android:text="Deskripsi"
+        android:textColor="@color/secondary"
+        android:textSize="11sp" />
+
+</LinearLayout>

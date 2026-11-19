@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_shade_4"
+    tools:context=".info.TentangFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="TENTANG KAMI"
+            android:textColor="@color/secondary"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Dedikasi untuk Kelapa Sawit Indonesia"
+            android:textColor="@color/primary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Berkah Palma adalah perusahaan penangkar bibit kelapa sawit yang berdiri sejak tahun 2015. Berawal dari komitmen untuk membantu petani swadaya mendapatkan bahan tanaman yang berkualitas, kini kami telah berkembang menjadi mitra strategis berbagai perkebunan skala menengah hingga besar di wilayah Sumatera."
+            android:textColor="@color/primary_shade_1"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</ScrollView>

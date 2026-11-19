@@ -59,6 +59,19 @@
             android:name=".auth.RegisterSuccessActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".onboarding.OnboardingActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".info.InfoPerusahaanActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pesanan.tutorial.TutorialPesananActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ASFJets"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
