@@ -30,9 +30,6 @@ class BaseActivity : AppCompatActivity() {
             insets
         }
 
-        /** HomeFragment sebagai fragment default */
-        replaceFragment(HomeFragment())
-
         binding.bottomNavView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
@@ -58,15 +55,30 @@ class BaseActivity : AppCompatActivity() {
                 else -> false // return false jika item tidak ada yang di klik
             }
         }
+
+        // Tab awal: dari activity lain bisa langsung membuka tab tertentu (misal Ulasan)
+        val tabAwal = intent.getIntExtra(EXTRA_TAB, 0)
+        if (tabAwal != 0) {
+            binding.bottomNavView.selectedItemId = tabAwal
+        } else {
+            /** HomeFragment sebagai fragment default */
+            replaceFragment(HomeFragment())
+        }
     }
+
     // Dipanggil dari fragment untuk pindah tab (otomatis memicu setOnItemSelectedListener)
     fun pindahTab(menuId: Int) {
         binding.bottomNavView.selectedItemId = menuId
     }
+
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(binding.fragmentContainer.id, fragment)
             //.addToBackStack(null) -> dinonaktifkan agar saat back langsung keluar aplikasi
             .commit()
+    }
+
+    companion object {
+        const val EXTRA_TAB = "extra_tab"
     }
 }
