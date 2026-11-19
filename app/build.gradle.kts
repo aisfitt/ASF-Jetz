@@ -36,7 +36,8 @@ android {
 }
 
 dependencies {
-    implementation("com.github.bumptech.glide:glide:5.0.10")
+    implementation("com.tbuonomo:dotsindicator:5.1.0")
+    implementation("androidx.gridlayout:gridlayout:1.0.0")
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
@@ -45,5 +46,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
-    implementation(libs.androidx.recyclerview)
+    implementation ("com.github.bumptech.glide:glide:5.0.9")
+    annotationProcessor ("com.github.bumptech.glide:compiler:5.0.9")
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
 }
