@@ -72,6 +72,9 @@
             android:exported="false"
             android:theme="@style/Theme.ASFJets"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pesanan.StatusPesananActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
