@@ -7,9 +7,9 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.asf_jets.BaseActivity
-import com.example.asf_jets.MainActivity
 import com.example.asf_jets.auth.LoginActivity
 import com.example.asf_jets.databinding.ActivitySplashScreenBinding
+import com.example.asf_jets.onboarding.OnboardingActivity
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -28,17 +28,21 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun checkSession() {
+        val appPref = getSharedPreferences("AppPref", Context.MODE_PRIVATE)
+        val isOnboardingDone = appPref.getBoolean("isOnboardingDone", false)
+
         val sharedPref = getSharedPreferences("UserPref", Context.MODE_PRIVATE)
         val isLoggedIn = sharedPref.getBoolean("isLoggedIn", false)
 
-        if (isLoggedIn) {
-            // Pengguna sudah login -> langsung ke Main
-            val intent = Intent(this, BaseActivity::class.java)
-            startActivity(intent)
+        if (!isOnboardingDone) {
+            // Pertama kali membuka aplikasi -> tampilkan Onboard Screen
+            startActivity(Intent(this, OnboardingActivity::class.java))
+        } else if (isLoggedIn) {
+            // Sudah login -> langsung ke BaseActivity
+            startActivity(Intent(this, BaseActivity::class.java))
         } else {
-            // Pengguna belum login -> arahkan ke LoginActivity
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            // Belum login -> LoginActivity
+            startActivity(Intent(this, LoginActivity::class.java))
         }
         finish()
     }
