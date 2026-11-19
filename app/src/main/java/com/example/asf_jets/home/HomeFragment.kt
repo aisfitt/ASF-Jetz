@@ -1,7 +1,9 @@
 package com.example.asf_jets.home
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,7 +16,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.asf_jets.BaseActivity
 import com.example.asf_jets.R
 import com.example.asf_jets.databinding.FragmentHomeBinding
+import com.example.asf_jets.info.FaqActivity
 import com.example.asf_jets.info.InfoPerusahaanActivity
+import com.example.asf_jets.katalog.Bibit
+import com.example.asf_jets.katalog.DataBibit
+import com.example.asf_jets.katalog.DetailBibitActivity
+import com.example.asf_jets.pesanan.StatusPesananActivity
 
 class HomeFragment : Fragment() {
 
@@ -70,20 +77,20 @@ class HomeFragment : Fragment() {
             pindahTab(R.id.katalog)
         }
 
-        // Bibit pilihan -> tab Katalog
+        // Bibit pilihan -> Detail Bibit
         binding.cvBibit1.setOnClickListener {
-            pindahTab(R.id.katalog)
+            bukaDetail(DataBibit.semua[0])
         }
         binding.cvBibit2.setOnClickListener {
-            pindahTab(R.id.katalog)
+            bukaDetail(DataBibit.semua[1])
         }
 
-        // Pesan dan status -> tab Pesanan
+        // Pesan sekarang -> tab Katalog (pilih bibit dulu), lihat status -> Status Pesanan
         binding.btnPesanSekarang.setOnClickListener {
-            pindahTab(R.id.pesanan)
+            pindahTab(R.id.katalog)
         }
         binding.btnLihatStatus.setOnClickListener {
-            pindahTab(R.id.pesanan)
+            startActivity(Intent(requireContext(), StatusPesananActivity::class.java))
         }
 
         // Info Perusahaan (fitur pendukung)
@@ -94,10 +101,10 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), InfoPerusahaanActivity::class.java))
         }
         binding.cvInfoFaq.setOnClickListener {
-            tampilkanToast("FAQ")
+            startActivity(Intent(requireContext(), FaqActivity::class.java))
         }
         binding.cvInfoWa.setOnClickListener {
-            tampilkanToast("WhatsApp")
+            bukaWhatsApp()
         }
     }
 
@@ -105,12 +112,30 @@ class HomeFragment : Fragment() {
         (requireActivity() as BaseActivity).pindahTab(menuId)
     }
 
-    private fun tampilkanToast(menu: String) {
-        Toast.makeText(requireContext(), "$menu diklik", Toast.LENGTH_SHORT).show()
+    private fun bukaDetail(bibit: Bibit) {
+        val intent = Intent(requireContext(), DetailBibitActivity::class.java)
+        intent.putExtra(DetailBibitActivity.EXTRA_NAMA, bibit.nama)
+        startActivity(intent)
+    }
+
+    // Membuka chat WhatsApp Berkah Palma (lewat link wa.me)
+    private fun bukaWhatsApp() {
+        val pesan = Uri.encode("Halo Berkah Palma, saya ingin bertanya tentang bibit sawit.")
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/$NOMOR_WA?text=$pesan"))
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(requireContext(), "WhatsApp tidak dapat dibuka", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        // GANTI dengan nomor WhatsApp asli Berkah Palma (format 62..., tanpa + dan tanpa spasi)
+        private const val NOMOR_WA = "6281234567890"
     }
 }

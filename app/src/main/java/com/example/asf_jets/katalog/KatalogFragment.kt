@@ -1,5 +1,6 @@
 package com.example.asf_jets.katalog
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,7 +8,6 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -43,25 +43,17 @@ class KatalogFragment : Fragment() {
             title = "Katalog Bibit"
         }
 
-        // 1. Data bibit (CONTOH, ganti dengan data asli dari web Berkah Palma)
-        val dataBibit = listOf(
-            Bibit("Bibit Sawit PPKS 6 Bulan", "PPKS", "6 Bulan", "Rp 25.000", 150),
-            Bibit("Bibit Sawit PPKS 9 Bulan", "PPKS", "9 Bulan", "Rp 35.000", 80),
-            Bibit("Bibit Sawit Yangambi 3 Bulan", "Yangambi", "3 Bulan", "Rp 18.000", 200),
-            Bibit("Bibit Sawit Yangambi 6 Bulan", "Yangambi", "6 Bulan", "Rp 26.000", 120),
-            Bibit("Bibit Sawit Socfindo 6 Bulan", "Socfindo", "6 Bulan", "Rp 28.000", 90),
-            Bibit("Bibit Sawit Socfindo 12 Bulan", "Socfindo", "12 Bulan", "Rp 45.000", 40)
-        )
-
-        // 2. Pasang LayoutManager dan Adapter ke RecyclerView
-        bibitAdapter = BibitAdapter(dataBibit) { bibit ->
+        // 1. Pasang LayoutManager dan Adapter ke RecyclerView (data dari DataBibit)
+        bibitAdapter = BibitAdapter(DataBibit.semua) { bibit ->
             Log.d("KatalogFragment", "Tombol Pesan ditekan: ${bibit.nama}")
-            Toast.makeText(requireContext(), "${bibit.nama} dipilih", Toast.LENGTH_SHORT).show()
+            val intent = Intent(requireContext(), DetailBibitActivity::class.java)
+            intent.putExtra(DetailBibitActivity.EXTRA_NAMA, bibit.nama)
+            startActivity(intent)
         }
         binding.rvBibit.layoutManager = LinearLayoutManager(requireContext())
         binding.rvBibit.adapter = bibitAdapter
 
-        // 3. Tampilkan "tidak ditemukan" bila hasil filter kosong
+        // 2. Tampilkan "tidak ditemukan" bila hasil filter kosong
         bibitAdapter.onHasilFilter = { jumlah ->
             _binding?.tvKosong?.visibility = if (jumlah == 0) View.VISIBLE else View.GONE
         }
