@@ -78,6 +78,9 @@
         <activity
             android:name=".pesanan.PesananDibuatActivity"
             android:exported="false" />
+        <activity
+            android:name=".pesanan.PemesananActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
